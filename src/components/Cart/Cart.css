@@ -1,0 +1,11 @@
+.cart-details{
+    padding: 20px;
+}
+.cart-details h2{
+    text-align: center;
+}
+.cart-details div p{
+    font-size: 17px;
+    font-weight: 600;
+    margin: 0;
+}
