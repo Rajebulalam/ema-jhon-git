@@ -4,6 +4,9 @@
 .cart-details h2{
     text-align: center;
 }
+.cart-details div{
+    position: fixed;
+}
 .cart-details div p{
     font-size: 17px;
     font-weight: 600;
