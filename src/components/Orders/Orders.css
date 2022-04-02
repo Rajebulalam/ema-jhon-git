@@ -1,0 +1,14 @@
+.order-container{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    padding: 100px;
+}
+.orders-product{}
+.orders-cart{
+    background-color: rgba(255, 153, 0, 0.3);
+    height: 350px;
+    border-radius: 5px;
+}
+.orders-cart div{
+    position: static;
+}

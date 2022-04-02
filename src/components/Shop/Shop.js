@@ -2,16 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import { loadData, setLocalStorageData } from '../Storage/Storage';
+import UseProducts from '../UseProducts/UseProducts';
 import './Shop.css';
 
 const Shop = () => {
 
-    const [products, setProducts] = useState([]);
-    useEffect(() => {
-        fetch('products.json')
-            .then(res => res.json())
-            .then(data => setProducts(data))
-    }, []);
+    const [products, setProducts] = UseProducts();
 
     const [cart, setCart] = useState([]);
     const btnHandler = (product) => {
@@ -30,12 +26,13 @@ const Shop = () => {
         setLocalStorageData(product.id);
     }
 
+
     useEffect(() => {
         const storedData = loadData();
         let savedCart = [];
-        for(const id in storedData){
+        for (const id in storedData) {
             const addedProduct = products.find(product => product.id === id);
-            if(addedProduct){
+            if (addedProduct) {
                 const quantity = storedData[id];
                 addedProduct.quantity = quantity;
                 savedCart.push(addedProduct);
@@ -56,7 +53,9 @@ const Shop = () => {
                 }
             </div>
             <div className='cart-container'>
-                <Cart cart={cart}></Cart>
+                <Cart 
+                    cart={cart}
+                ></Cart>
             </div>
         </div>
     );

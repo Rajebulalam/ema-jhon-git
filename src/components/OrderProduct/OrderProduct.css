@@ -1,0 +1,22 @@
+.order-product{
+    padding: 20px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 10px 10px 30px gray;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+.order-product img{
+    width: 50px;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+.order-product h2{
+    font-size: 16px;
+}
+.child-order{
+    display: flex;
+}
