@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
+import { loadData, setLocalStorageData } from '../Storage/Storage';
 import './Shop.css';
 
 const Shop = () => {
@@ -16,17 +17,32 @@ const Shop = () => {
     const btnHandler = (product) => {
         let newCart = [];
         const exists = cart.find(cart => cart.id === product.id);
-        if(!exists){
+        if (!exists) {
             const quantity = 1;
             product.quantity = quantity;
             newCart = [...cart, product];
-        }else{
+        } else {
             const rest = cart.filter(cart => cart.id !== product.id);
             exists.quantity = exists.quantity + 1;
             newCart = [...rest, exists];
         }
         setCart(newCart);
+        setLocalStorageData(product.id);
     }
+
+    useEffect(() => {
+        const storedData = loadData();
+        let savedCart = [];
+        for(const id in storedData){
+            const addedProduct = products.find(product => product.id === id);
+            if(addedProduct){
+                const quantity = storedData[id];
+                addedProduct.quantity = quantity;
+                savedCart.push(addedProduct);
+            }
+            setCart(savedCart);
+        }
+    }, [products])
 
     return (
         <div className='shop-container'>
