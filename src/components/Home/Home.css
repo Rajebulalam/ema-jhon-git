@@ -1,0 +1,41 @@
+.home-container {
+    padding: 30px 140px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.home-container div h4 {
+    color: #FF9900;
+    font-size: 16px;
+}
+
+.home-container div h2 {
+    font-size: 2.3rem;
+    margin-bottom: 0;
+}
+
+.home-container div p {
+    margin: 0 0 40px;
+    color: #2A414F;
+    font-weight: 600;
+}
+
+.home-container div a {
+    background-color: #FF9900;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 13px 25px;
+    text-decoration: none;
+    border-radius: 3px;
+    color: #000;
+}
+
+.home-container div a:hover {
+    background-color: orange;
+}
+.home-container div img{
+    max-width: 470px;
+    width: 100%;
+    height: 500px;
+}
