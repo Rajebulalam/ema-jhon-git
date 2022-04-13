@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './Login.css';
 import googleIcon from '../../images/google.png';
-import { Link } from 'react-router-dom';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
 const Login = () => {
@@ -10,13 +10,13 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [err, setErr] = useState('');
-    const [success, setSuccess] = useState('');
     const [
         signInWithEmailAndPassword,
-        user,
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+    const [user] = useAuthState(auth);
+    const navigate = useNavigate();
 
     const handleEmail = event => {
         setEmail(event.target.value);
@@ -38,6 +38,10 @@ const Login = () => {
         signInWithEmailAndPassword(email, password)
     }
 
+    if(user){
+        navigate('/shop');
+    }
+
     return (
         <div className='login-container'>
             <div className='child-login'>
@@ -53,7 +57,6 @@ const Login = () => {
                     </div>
                     <div>
                         <p className='danger'> {err} </p>
-                        <p className='success'> {success} </p>
                         <p> {error?.message} </p>
                         <p> {loading && 'Loading ...'} </p>
                     </div>

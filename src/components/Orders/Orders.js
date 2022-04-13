@@ -44,7 +44,7 @@ const Orders = () => {
                             <p>Clear Cart</p>
                         </button>
                         <button className='remove-cart' type='button'>
-                            <Link to='/orders'><p>Proceed Checkout</p></Link>
+                            <Link to='/shipping'><p>Proceed Checkout</p></Link>
                         </button>
                     </div>
                 </Cart>

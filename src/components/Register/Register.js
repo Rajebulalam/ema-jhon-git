@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './Register.css';
 import googleIcon from '../../images/google.png';
-import { Link } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuthState, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
 const Register = () => {
@@ -14,10 +14,11 @@ const Register = () => {
     const [success, setSuccess] = useState('');
     const [
         createUserWithEmailAndPassword,
-        user,
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
+    const [user] = useAuthState(auth);
+    const navigate = useNavigate();
 
     const handleEmail = event => {
         setEmail(event.target.value);
@@ -48,6 +49,10 @@ const Register = () => {
             }
         }
         createUserWithEmailAndPassword(email, password)
+    }
+
+    if(user){
+        navigate('/shop');
     }
 
     return (
