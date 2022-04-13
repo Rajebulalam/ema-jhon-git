@@ -71,4 +71,9 @@
     font-weight: 700;
     padding: 5px 10px;
 }
-.google-btn button p{}
+.child-login .danger{
+    color: red;
+}
+.child-login .success{
+    color: green;
+}
