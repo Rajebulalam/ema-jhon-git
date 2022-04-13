@@ -1,4 +1,74 @@
 .login-container{
     padding: 40px;
 }
-.login-container{}
+.login-container h2{
+    text-align: center;
+}
+.child-login{
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 5px;
+    box-shadow: 10px 10px 20px orange;
+    box-sizing: border-box;
+    padding: 40px;
+}
+.child-login label{
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px;
+    color: #2A414F;
+}
+.child-login input{
+    width: 100%;
+    outline: none;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+.child-login button{
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: rgba(255, 153, 0, 0.3);
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 5px;
+}
+.child-login p{
+    text-align: center;
+    color: #2A414F;
+    font-size: 16px;
+    font-weight: 600;
+}
+.highlight a{
+    color: #ff9900;
+    text-decoration: none;
+}
+.or-design{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.or-design span{
+    height: 2px;
+    width: 100%;
+    background-color: #2A414F;
+}
+.or-design p{
+    padding: 0 20px;
+}
+.google-btn button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+.google-btn button p{ 
+    font-size: 14px;
+    font-weight: 700;
+    padding: 5px 10px;
+}
+.google-btn button p{}
