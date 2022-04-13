@@ -1,13 +1,16 @@
-.cart-details{
+.cart-details {
     padding: 20px;
 }
-.cart-details h2{
+
+.cart-details h2 {
     text-align: center;
 }
-.cart-details div{
+
+.cart-details div {
     position: fixed;
 }
-.cart-details div p{
+
+.cart-details div p {
     font-size: 17px;
     font-weight: 600;
     margin: 0;

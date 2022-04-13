@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import { loadData, setLocalStorageData } from '../Storage/Storage';
@@ -41,6 +42,10 @@ const Shop = () => {
         }
     }, [products])
 
+    const clearCart = () => {
+        setCart([]);
+    }
+
     return (
         <div className='shop-container'>
             <div className='products-container'>
@@ -53,9 +58,16 @@ const Shop = () => {
                 }
             </div>
             <div className='cart-container'>
-                <Cart 
-                    cart={cart}
-                ></Cart>
+                <Cart cart={cart} key={cart.id}>
+                    <div>
+                        <button onClick={clearCart} className='clear-cart' type='button'>
+                            <p>Clear Cart</p>
+                        </button>
+                        <button className='remove-cart' type='button'>
+                            <Link to='/orders'><p>Review Order</p></Link>
+                        </button>
+                    </div>
+                </Cart>
             </div>
         </div>
     );

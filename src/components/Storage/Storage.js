@@ -29,6 +29,8 @@ const loadData = () => {
     return shoppingCart;
 }
 
+
+
 export {
     setLocalStorageData,
     loadData

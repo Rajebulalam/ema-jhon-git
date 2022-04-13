@@ -1,7 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Cart from '../Cart/Cart';
 import OrderProduct from '../OrderProduct/OrderProduct';
-import Product from '../Product/Product';
 import UseCart from '../UseCart/UseCart';
 import UseProducts from '../UseProducts/UseProducts';
 import './Orders.css';
@@ -16,6 +16,10 @@ const Orders = () => {
         setCart(removeItem);
     }
 
+    const clearCart = () => {
+        setCart([]);
+    }
+
     return (
         <div className='order-container'>
             <div className='orders-product'>
@@ -27,7 +31,16 @@ const Orders = () => {
                 }
             </div>
             <div className='orders-cart'>
-                <Cart cart={cart}></Cart>
+                <Cart cart={cart} key={cart.id}>
+                    <div>
+                        <button onClick={clearCart} className='clear-cart' type='button'>
+                            <p>Clear Cart</p>
+                        </button>
+                        <button className='remove-cart' type='button'>
+                            <Link to='/orders'><p>Proceed Checkout</p></Link>
+                        </button>
+                    </div>
+                </Cart>
             </div>
         </div>
     );
