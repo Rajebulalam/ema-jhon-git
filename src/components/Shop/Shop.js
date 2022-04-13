@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
-import { loadData, setLocalStorageData } from '../Storage/Storage';
+import { loadData, removeFullCartFromStorage, setLocalStorageData } from '../Storage/Storage';
 import UseProducts from '../UseProducts/UseProducts';
 import './Shop.css';
 
@@ -46,6 +46,11 @@ const Shop = () => {
         setCart([]);
     }
 
+    const removeCart = () => {
+        clearCart();
+        removeFullCartFromStorage();
+    }
+
     return (
         <div className='shop-container'>
             <div className='products-container'>
@@ -60,7 +65,7 @@ const Shop = () => {
             <div className='cart-container'>
                 <Cart cart={cart} key={cart.id}>
                     <div>
-                        <button onClick={clearCart} className='clear-cart' type='button'>
+                        <button onClick={removeCart} className='clear-cart' type='button'>
                             <p>Clear Cart</p>
                         </button>
                         <button className='remove-cart' type='button'>

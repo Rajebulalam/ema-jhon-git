@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Cart from '../Cart/Cart';
 import OrderProduct from '../OrderProduct/OrderProduct';
+import { removeFullCartFromStorage, removeSingleDataFromStorage } from '../Storage/Storage';
 import UseCart from '../UseCart/UseCart';
 import UseProducts from '../UseProducts/UseProducts';
 import './Orders.css';
@@ -14,10 +15,16 @@ const Orders = () => {
     const removeSingleProduct = (id) => {
         const removeItem = cart.filter(cart => cart.id !== id);
         setCart(removeItem);
+        removeSingleDataFromStorage(id);
     }
 
     const clearCart = () => {
         setCart([]);
+    }
+
+    const removeCart = () => {
+        clearCart();
+        removeFullCartFromStorage();
     }
 
     return (
@@ -33,7 +40,7 @@ const Orders = () => {
             <div className='orders-cart'>
                 <Cart cart={cart} key={cart.id}>
                     <div>
-                        <button onClick={clearCart} className='clear-cart' type='button'>
+                        <button onClick={removeCart} className='clear-cart' type='button'>
                             <p>Clear Cart</p>
                         </button>
                         <button className='remove-cart' type='button'>
