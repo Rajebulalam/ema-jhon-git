@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import './Login.css';
 import googleIcon from '../../images/google.png';
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
-import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useAuthState, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
 const Login = () => {
 
@@ -41,8 +42,16 @@ const Login = () => {
         signInWithEmailAndPassword(email, password)
     }
 
-    if(user){
+    if (user) {
         navigate(from, { replace: true });
+    }
+
+    // Sign In With Google
+    // const [signInWithGoogle] = useSignInWithGoogle(auth);
+
+    const googleProvider = new GoogleAuthProvider();
+    const handleSignIn = () => {
+        signInWithPopup(auth, googleProvider);
     }
 
     return (
@@ -74,7 +83,7 @@ const Login = () => {
                     <span></span>
                 </div>
                 <div className='google-btn'>
-                    <button type="submit">
+                    <button onClick={handleSignIn} type="submit">
                         <img src={googleIcon} alt="google-icon" />
                         <p>Continue With Google</p>
                     </button>
