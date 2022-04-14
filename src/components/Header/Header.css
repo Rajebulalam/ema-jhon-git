@@ -38,4 +38,6 @@
     padding: 13px 20px;
     font-weight: 600;
 }
-.link-logout{}
+.header-container .logo{
+    padding: 0;
+}
