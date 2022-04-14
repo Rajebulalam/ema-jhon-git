@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Login.css';
 import googleIcon from '../../images/google.png';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useAuthState, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import gitHubIcon from '../../images/github.png';
 import facebookIcon from '../../images/facebook.png';
@@ -50,7 +50,8 @@ const Login = () => {
     // Sign In With Google
     const [signInWithGoogle] = useSignInWithGoogle(auth);
 
-    
+    // Sign In With Github
+    const [signInWithGithub] = useSignInWithGithub(auth);
 
 
     return (
@@ -86,7 +87,7 @@ const Login = () => {
                         <img src={googleIcon} alt="google-icon" />
                         <p>Continue With Google</p>
                     </button>
-                    <button type="submit">
+                    <button onClick={() => signInWithGithub()} type="submit">
                         <img src={gitHubIcon} alt="google-icon" />
                         <p>Continue With Github</p>
                     </button>

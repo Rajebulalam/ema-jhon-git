@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Register.css';
 import googleIcon from '../../images/google.png';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuthState, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useCreateUserWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import gitHub from '../../images/github.png';
 import facebook from '../../images/facebook.png';
@@ -53,9 +53,15 @@ const Register = () => {
         createUserWithEmailAndPassword(email, password)
     }
 
-    if(user){
+    if (user) {
         navigate('/shop');
     }
+
+    // Sign In With Google
+    const [signInWithGoogle] = useSignInWithGoogle(auth);
+
+    // Sign In With Github
+    const [signInWithGithub] = useSignInWithGithub(auth);
 
     return (
         <div className='login-container'>
@@ -91,12 +97,12 @@ const Register = () => {
                     <span></span>
                 </div>
                 <div className='google-btn'>
-                    <button type="submit">
+                    <button onClick={() => signInWithGoogle()} type="submit">
                         <img src={googleIcon} alt="google-icon" />
                         <p>Continue With Google</p>
                     </button>
                     <button type="submit">
-                        <img src={gitHub} alt="google-icon" />
+                        <img onClick={() => signInWithGithub()} src={gitHub} alt="google-icon" />
                         <p>Continue With GitHub</p>
                     </button>
                     <button type="submit">
