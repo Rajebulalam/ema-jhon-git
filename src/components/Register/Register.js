@@ -6,6 +6,8 @@ import { useAuthState, useCreateUserWithEmailAndPassword, useSignInWithGithub, u
 import auth from '../../firebase.init';
 import gitHub from '../../images/github.png';
 import facebook from '../../images/facebook.png';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
 
@@ -37,7 +39,7 @@ const Register = () => {
         console.log(event.target.value);
     }
 
-    const handleSubmit = event => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
         if (!/^(?=^.{8,}$)(?=.*[0-9])(?=.+[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;&gt;.&lt;;,]).{1,}$/.test(password)) {
@@ -50,7 +52,8 @@ const Register = () => {
                 setErr('Your password does not match!')
             }
         }
-        createUserWithEmailAndPassword(email, password)
+        await createUserWithEmailAndPassword(email, password);
+        toast('Success Fully User Created');
     }
 
     if (user) {
@@ -96,6 +99,7 @@ const Register = () => {
                     <p>or</p>
                     <span></span>
                 </div>
+                <ToastContainer />
                 <div className='google-btn'>
                     <button onClick={() => signInWithGoogle()} type="submit">
                         <img src={googleIcon} alt="google-icon" />

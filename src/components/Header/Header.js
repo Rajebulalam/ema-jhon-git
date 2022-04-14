@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Header = () => {
 
@@ -12,6 +14,7 @@ const Header = () => {
 
     const logOut = () => {
         signOut(auth);
+        toast('Log out success fully!!');
     }
 
     return (
@@ -29,6 +32,7 @@ const Header = () => {
                 {
                     user ? <button onClick={logOut} className='link-logout'>Log Out</button> : <Link className='link-login' to='/login'>Login</Link>
                 }
+                <ToastContainer />
             </div>
         </div>
     );
