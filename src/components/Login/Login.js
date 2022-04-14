@@ -4,7 +4,8 @@ import googleIcon from '../../images/google.png';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuthState, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import gitHubIcon from '../../images/github.png';
+import facebookIcon from '../../images/facebook.png';
 
 const Login = () => {
 
@@ -47,12 +48,10 @@ const Login = () => {
     }
 
     // Sign In With Google
-    // const [signInWithGoogle] = useSignInWithGoogle(auth);
+    const [signInWithGoogle] = useSignInWithGoogle(auth);
 
-    const googleProvider = new GoogleAuthProvider();
-    const handleSignIn = () => {
-        signInWithPopup(auth, googleProvider);
-    }
+    
+
 
     return (
         <div className='login-container'>
@@ -83,9 +82,17 @@ const Login = () => {
                     <span></span>
                 </div>
                 <div className='google-btn'>
-                    <button onClick={handleSignIn} type="submit">
+                    <button onClick={() => signInWithGoogle()} type="submit">
                         <img src={googleIcon} alt="google-icon" />
                         <p>Continue With Google</p>
+                    </button>
+                    <button type="submit">
+                        <img src={gitHubIcon} alt="google-icon" />
+                        <p>Continue With Github</p>
+                    </button>
+                    <button type="submit">
+                        <img src={facebookIcon} alt="google-icon" />
+                        <p>Continue With Facebook</p>
                     </button>
                 </div>
             </div>

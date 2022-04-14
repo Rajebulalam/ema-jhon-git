@@ -4,6 +4,8 @@ import googleIcon from '../../images/google.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthState, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import gitHub from '../../images/github.png';
+import facebook from '../../images/facebook.png';
 
 const Register = () => {
 
@@ -92,6 +94,14 @@ const Register = () => {
                     <button type="submit">
                         <img src={googleIcon} alt="google-icon" />
                         <p>Continue With Google</p>
+                    </button>
+                    <button type="submit">
+                        <img src={gitHub} alt="google-icon" />
+                        <p>Continue With GitHub</p>
+                    </button>
+                    <button type="submit">
+                        <img src={facebook} alt="google-icon" />
+                        <p>Continue With Facebook</p>
                     </button>
                 </div>
             </div>
