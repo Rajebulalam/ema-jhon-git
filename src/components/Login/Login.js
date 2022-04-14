@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Login.css';
 import googleIcon from '../../images/google.png';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useAuthState, useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import gitHubIcon from '../../images/github.png';
 import facebookIcon from '../../images/facebook.png';
@@ -53,6 +53,15 @@ const Login = () => {
     // Sign In With Github
     const [signInWithGithub] = useSignInWithGithub(auth);
 
+    // Forget password
+    const [sendPasswordResetEmail] = useSendPasswordResetEmail(
+        auth
+    );
+
+    const handleForgetPassword = async () => {
+        await sendPasswordResetEmail(email);
+        alert('Sent email');
+    }
 
     return (
         <div className='login-container'>
@@ -77,6 +86,7 @@ const Login = () => {
                     </div>
                 </form>
                 <p>New to Ema-john? <span className='highlight'><Link to='/register'>Create New Account</Link></span></p>
+                <p className='forgetPassword' onClick={handleForgetPassword}>Forget Password?</p>
                 <div className='or-design'>
                     <span></span>
                     <p>or</p>

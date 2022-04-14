@@ -78,3 +78,7 @@
 .child-login .success{
     color: green;
 }
+.forgetPassword{
+    cursor: pointer;
+    color: blue;
+}
