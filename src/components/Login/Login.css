@@ -1,10 +1,12 @@
-.login-container{
+.login-container {
     padding: 40px;
 }
-.login-container h2{
+
+.login-container h2 {
     text-align: center;
 }
-.child-login{
+
+.child-login {
     max-width: 500px;
     width: 100%;
     margin: 0 auto;
@@ -13,21 +15,24 @@
     box-sizing: border-box;
     padding: 40px;
 }
-.child-login label{
+
+.child-login label {
     display: block;
     font-size: 16px;
     font-weight: 700;
     padding: 10px;
     color: #2A414F;
 }
-.child-login input{
+
+.child-login input {
     width: 100%;
     outline: none;
     padding: 10px;
     box-sizing: border-box;
     margin-bottom: 15px;
 }
-.child-login .btn{
+
+.child-login .btn {
     width: 100%;
     padding: 15px;
     border: none;
@@ -38,47 +43,67 @@
     border-radius: 5px;
     cursor: pointer;
 }
-.child-login p{
+
+.child-login p {
     text-align: center;
     color: #2A414F;
     font-size: 16px;
     font-weight: 600;
 }
-.highlight a{
+
+.highlight a {
     color: #ff9900;
     text-decoration: none;
 }
-.or-design{
+
+.or-design {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.or-design span{
+
+.or-design span {
     height: 2px;
     width: 100%;
     background-color: #2A414F;
 }
-.or-design p{
+
+.or-design p {
     padding: 0 20px;
 }
-.social-btn .btn{
+
+.social-btn .btn {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0;
 }
-.social-btn button p{ 
+
+.social-btn button p {
     font-size: 14px;
     font-weight: 700;
     padding: 5px 10px;
 }
-.child-login .danger{
+
+.child-login .danger {
     color: red;
 }
-.child-login .success{
+
+.child-login .success {
     color: green;
 }
-.forgetPassword{
+
+.forgetPassword {
     cursor: pointer;
     color: blue;
+}
+
+
+@media only screen and (min-width: 200px) and (max-width: 667px) {
+
+    .child-login {
+        box-shadow: none;
+        padding: 15px;
+    }
+
 }
