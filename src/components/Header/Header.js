@@ -30,7 +30,7 @@ const Header = () => {
                 <Link to='./About'>About</Link>
                 <Link className='link-register' to='/register'>Register</Link>
                 {
-                    user ? <button onClick={logOut} className='link-logout'>Log Out</button> : <Link className='link-login' to='/login'>Login</Link>
+                    user ? <Link onClick={logOut} className='link-login' to='/login'>Log Out</Link> : <Link className='link-login' to='/login'>Login</Link>
                 }
                 <ToastContainer />
             </div>
