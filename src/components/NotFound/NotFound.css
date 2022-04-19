@@ -1,4 +1,33 @@
-.notfound-container{
-    padding: 40px 100px;
+.notFound-container {
+    padding: 40px 140px;
+    text-align: center;
 }
-.notfound-container{}
+
+.notFound-container h1 {
+    font-size: 4rem;
+    font-weight: 900;
+}
+
+.notFound-container p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.notFound-container a {
+    padding: 15px 30px;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 40px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.notFound-container a:hover {
+    background-color: #fff;
+    border: 3px solid black;
+    color: #000;
+}
