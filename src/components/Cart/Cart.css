@@ -15,3 +15,12 @@
     font-weight: 600;
     margin: 0;
 }
+
+@media only screen and (min-width: 200px) and (max-width: 580px) {
+
+    .cart-details div{
+        position: static;
+        text-align: center;
+    }
+
+}

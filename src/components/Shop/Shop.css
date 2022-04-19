@@ -52,3 +52,34 @@
     text-decoration: none;
     color: #fff;
 }
+
+
+@media only screen and (min-width: 200px) and (max-width: 1200px) {
+
+    .products-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media only screen and (min-width: 200px) and (max-width: 900px) {
+
+    .shop-container {
+        grid-template-columns: 2fr 1fr;
+    }
+
+    .products-container {
+        grid-template-columns: 1fr;
+        padding: 40px 0;
+    }
+    
+
+}
+
+@media only screen and (min-width: 200px) and (max-width: 580px) {
+
+    .shop-container {
+        grid-template-columns: 1fr;
+    }
+
+}
