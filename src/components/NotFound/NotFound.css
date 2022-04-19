@@ -31,3 +31,11 @@
     border: 3px solid black;
     color: #000;
 }
+
+@media only screen and (max-width: 767px) {
+	
+	.notFound-container{
+        padding: 30px;
+    }
+	
+}
