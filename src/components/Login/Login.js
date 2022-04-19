@@ -9,6 +9,7 @@ import facebookIcon from '../../images/facebook.png';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { async } from '@firebase/util';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
 
@@ -72,6 +73,9 @@ const Login = () => {
 
     return (
         <div className='login-container'>
+            <Helmet>
+                <title> Login - Ema Jhon Shop </title>
+            </Helmet>
             <div className='child-login'>
                 <form onSubmit={handleSubmit}>
                     <h2>Please login !!</h2>

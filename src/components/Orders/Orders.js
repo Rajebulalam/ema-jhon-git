@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import Cart from '../Cart/Cart';
 import OrderProduct from '../OrderProduct/OrderProduct';
@@ -29,6 +30,9 @@ const Orders = () => {
 
     return (
         <div className='order-container'>
+            <Helmet>
+                <title> Orders - Ema Jhon Shop </title>
+            </Helmet>
             <div className='orders-product'>
                 {
                     cart.map(product => <OrderProduct

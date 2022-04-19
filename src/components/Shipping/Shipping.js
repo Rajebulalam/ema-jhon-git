@@ -1,9 +1,13 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import './Shipping.css';
 
 const Shipping = () => {
     return (
         <div className='login-container'>
+            <Helmet>
+                <title> Shipping - Ema Jhon Shop </title>
+            </Helmet>
             <div className='child-login'>
                 <form>
                     <h2>Shipping Information</h2>

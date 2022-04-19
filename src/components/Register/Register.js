@@ -8,6 +8,7 @@ import gitHub from '../../images/github.png';
 import facebook from '../../images/facebook.png';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from 'react-helmet-async';
 
 const Register = () => {
 
@@ -20,7 +21,7 @@ const Register = () => {
         createUserWithEmailAndPassword,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification : true});
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
 
@@ -68,6 +69,9 @@ const Register = () => {
 
     return (
         <div className='login-container'>
+            <Helmet>
+                <title> Register - Ema Jhon Shop </title>
+            </Helmet>
             <div className='child-login'>
                 <form onSubmit={handleSubmit}>
                     <h2>Please Register !!</h2>
@@ -100,16 +104,16 @@ const Register = () => {
                     <span></span>
                 </div>
                 <ToastContainer />
-                <div className='google-btn'>
-                    <button onClick={() => signInWithGoogle()} type="submit">
+                <div className='social-btn'>
+                    <button className='btn' onClick={() => signInWithGoogle()} type="submit">
                         <img src={googleIcon} alt="google-icon" />
                         <p>Continue With Google</p>
                     </button>
-                    <button type="submit">
+                    <button className='btn' type="submit">
                         <img onClick={() => signInWithGithub()} src={gitHub} alt="google-icon" />
                         <p>Continue With GitHub</p>
                     </button>
-                    <button type="submit">
+                    <button className='btn' type="submit">
                         <img src={facebook} alt="google-icon" />
                         <p>Continue With Facebook</p>
                     </button>
