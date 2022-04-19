@@ -34,8 +34,33 @@
 .home-container div a:hover {
     background-color: orange;
 }
-.home-container div img{
+
+.home-container div img {
     max-width: 470px;
     width: 100%;
     height: 500px;
 }
+
+@media only screen and (min-width: 200px) and (max-width: 867px) {
+
+    .home-container {
+        padding: 20px;
+        flex-direction: column;
+    }
+
+    .home-container div:first-child {
+        margin-bottom: 50px;
+    }
+
+    .home-container div img {
+        width: 100%;
+        height: auto;
+    }
+
+}
+
+/* @media only screen and (min-width: 480px) and (max-width: 767px) {
+
+    
+
+} */
