@@ -21,6 +21,14 @@ const Shipping = () => {
         const customer = {
             name, email, password, country, city, zipCode
         };
+
+        fetch('http://localhost:5000/orders', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(customer)
+        })
         console.log(customer);
     }
 
