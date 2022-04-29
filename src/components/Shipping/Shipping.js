@@ -29,6 +29,12 @@ const Shipping = () => {
             },
             body: JSON.stringify(customer)
         })
+            .then(res => res.json())
+            .then(data => {
+                console.log('Send data to server successfully', data)
+                alert('Successfully Data Send');
+                event.target.reset();
+            })
         console.log(customer);
     }
 
