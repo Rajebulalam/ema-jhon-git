@@ -25,9 +25,14 @@ const Header = () => {
             <div>
                 <Link to='/'>Home</Link>
                 <Link to='/shop'>Shop</Link>
-                <Link to='/orders'>Orders</Link>
-                <Link to='./inventory'>Inventory</Link>
-                <Link to='./About'>About</Link>
+                <Link to='/inventory'>Inventory</Link>
+                <Link to='/about'>About</Link>
+                {
+                    user && <>
+                        <Link to='/orders'>Orders</Link>
+                        <Link to='/checkout'>Checkout</Link>
+                    </>
+                }
                 <Link className='link-register' to='/register'>Register</Link>
                 {
                     user ? <Link onClick={logOut} className='link-login' to='/login'>Log Out</Link> : <Link className='link-login' to='/login'>Login</Link>

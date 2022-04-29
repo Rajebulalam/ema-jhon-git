@@ -1,8 +1,14 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import './Shipping.css';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 const Shipping = () => {
+
+    const [user] = useAuthState(auth);
+    console.log(user);
+
     return (
         <div className='login-container'>
             <Helmet>
@@ -13,11 +19,11 @@ const Shipping = () => {
                     <h2>Shipping Information</h2>
                     <div>
                         <label htmlFor="name">Name</label>
-                        <input required type="text" name="name" id="" placeholder='Your Name' />
+                        <input required type="text" name="name" id="" placeholder='Your Name' autoComplete='off' />
                     </div>
                     <div>
                         <label htmlFor="email">Email</label>
-                        <input required type="email" name="email" id="" placeholder='Your Email' />
+                        <input required type="email" name="email" id="" value={user.email} placeholder='Your Email' readOnly disabled />
                     </div>
                     <div>
                         <label htmlFor="password">Password</label>
