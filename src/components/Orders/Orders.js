@@ -38,6 +38,7 @@ const Orders = () => {
                     cart.map(product => <OrderProduct
                         product={product}
                         removeSingleProduct={removeSingleProduct}
+                        key={product.id}
                     ></OrderProduct>)
                 }
             </div>
