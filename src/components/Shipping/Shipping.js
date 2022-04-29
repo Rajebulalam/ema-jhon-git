@@ -9,13 +9,28 @@ const Shipping = () => {
     const [user] = useAuthState(auth);
     console.log(user);
 
+    const handleSubmitInfo = event => {
+        event.preventDefault();
+        const name = event.target.name.value;
+        const email = event.target.email.value;
+        const password = event.target.password.value;
+        const country = event.target.country.value;
+        const city = event.target.city.value;
+        const zipCode = event.target.zipCode.value;
+
+        const customer = {
+            name, email, password, country, city, zipCode
+        };
+        console.log(customer);
+    }
+
     return (
         <div className='login-container'>
             <Helmet>
                 <title> Shipping - Ema Jhon Shop </title>
             </Helmet>
             <div className='child-login'>
-                <form>
+                <form onSubmit={handleSubmitInfo}>
                     <h2>Shipping Information</h2>
                     <div>
                         <label htmlFor="name">Name</label>
@@ -35,11 +50,11 @@ const Shipping = () => {
                     </div>
                     <div>
                         <label htmlFor="city">City</label>
-                        <input required type="text" name="City" id="" placeholder='City' />
+                        <input required type="text" name="city" id="" placeholder='City' />
                     </div>
                     <div>
                         <label htmlFor="zip">Zip Code</label>
-                        <input required type="text" name="zip-code" id="" placeholder='Zip Code' />
+                        <input required type="text" name="zipCode" id="" placeholder='Zip Code' />
                     </div>
                     <div>
                         <button className='btn' type="submit">Submit</button>
